@@ -1,6 +1,5 @@
 package gestor;
 
-import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class ContactoApp {
@@ -19,6 +18,18 @@ public class ContactoApp {
         System.out.println("5.- Salir");
 
         switch (opcion){
+            case 1:
+            System.out.println("Agrega el Nombre del Contacto: ");
+            String agregarNombre = scanner.nextLine();
+            
+            System.out.println("Agrega el Numero del contacto: ");
+            long agregarNumero = scanner.nextLong();
+            scanner.nextLine();
+
+            contactoService.agregarContacto(agregarNombre, agregarNumero);
+
+
+      
             
         }
 
