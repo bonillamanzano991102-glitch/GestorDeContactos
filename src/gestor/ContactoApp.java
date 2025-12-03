@@ -17,21 +17,51 @@ public class ContactoApp {
             System.out.println("4.- Editar numero de Telefono:");
             System.out.println("5.- Salir");
 
+            opcion = scanner.nextInt();
             switch (opcion){
                 case 1:
-                    System.out.println("Agrega el Nombre del Contacto: ");
+                    System.out.print("Agrega el Nombre del Contacto: ");
+                    scanner.nextLine();
                     String agregarNombre = scanner.nextLine();
 
-                    System.out.println("Agrega el Numero del contacto: ");
+                    System.out.print("Agrega el Numero del contacto: ");
                     long agregarNumero = scanner.nextLong();
-                    scanner.nextLine();
+
 
                     contactoService.agregarContacto(agregarNombre, agregarNumero);
+                        break;
+                case 2:
+                    System.out.println("Lista de contactos: ");
+                        contactoService.mostrarContactos();
+                        break;
+                case 3:
+                    System.out.print("Escribe el id que deceas buscar: ");
+                    int idBuscar = scanner.nextInt();
+                    Contacto encontrado = contactoService.buscarContactoPorId(idBuscar);
+                    scanner.nextLine();
 
+                    if (encontrado != null){
+                        System.out.println("ID : " + encontrado.getId() +
+                                " | Nombre: " + encontrado.getNombre() + " | Numero: " + encontrado.getNumero());
+                    }
 
+                    break;
+                case 4:
+                    System.out.print("Escribe el ID del numero que deseas actualizar: ");
+                    int idActualizar = scanner.nextInt();
+                    contactoService.buscarContactoPorId(idActualizar);
+                    scanner.nextLine();
 
+                    System.out.print("Dijite el numero nuevo a actualizar: ");
+                    long numeroActualizar = scanner.nextLong();
+                    scanner.nextLine();
+                    contactoService.actualizarNumero(idActualizar, numeroActualizar);
+                    break;
+                case 5:
+                    System.out.println("Hasta pronto!!!");
 
             }
+
 
 
         }
