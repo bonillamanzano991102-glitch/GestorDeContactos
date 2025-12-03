@@ -19,7 +19,7 @@ public class ContactoApp {
         System.out.println("5.- Salir");
 
         switch (opcion){
-            
+
         }
 
 
