@@ -9,13 +9,14 @@ public class ContactoApp {
 
         int opcion = 0;
 
-        while (opcion != 5){
+        while (opcion != 6){
             System.out.println("¿QUE DECEAS HACER? ELIJE ALGUNA DE LAS 5 OPCIONES:");
             System.out.println("1.- Agregar Contacto:");
             System.out.println("2.- Mostrar Contactos:");
             System.out.println("3.- Buscar Contacto Por ID:");
             System.out.println("4.- Editar numero de Telefono:");
-            System.out.println("5.- Salir");
+            System.out.println("5.- Eliminar un contacto por ID: ");
+            System.out.println("6.- Salir");
 
             opcion = scanner.nextInt();
             switch (opcion){
@@ -58,7 +59,14 @@ public class ContactoApp {
                     contactoService.actualizarNumero(idActualizar, numeroActualizar);
                     break;
                 case 5:
-                    System.out.println("Hasta pronto!!!");
+                    System.out.print("Elige el ID que deseas eliminar: ");
+                    int id = scanner.nextInt();
+                    scanner.nextLine();
+                    contactoService.borrarPorId(id);
+                    break;
+
+                case 6:
+                    System.out.println("Hasta pronto: ");
 
             }
 

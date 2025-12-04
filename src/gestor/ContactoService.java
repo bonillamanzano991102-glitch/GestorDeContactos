@@ -46,6 +46,17 @@ public class ContactoService {
         }
         System.out.println("No se encontro el ID que busca :(");
 
+
+
+
+        }
+        public void borrarPorId(int id) {
+        for (Contacto c : contacto){
+            if (c.getId() == id){
+                contacto.remove(id - 1);
+                return;
+            }
+        }
     }
 
 
