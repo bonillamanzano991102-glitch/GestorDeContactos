@@ -60,8 +60,10 @@ public class ContactoService {
         }
             System.out.println("No se encontro el ID del numero que desea eliminar");
     }
-    public void validarNumero(long numero){
-        
+    public boolean validarNumero(long numero){
+        if (numero != 10){
+            System.out.println();
+        }return ;
     }
 
 
