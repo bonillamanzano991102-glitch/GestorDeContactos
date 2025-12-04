@@ -53,10 +53,15 @@ public class ContactoService {
         public void borrarPorId(int id) {
         for (Contacto c : contacto){
             if (c.getId() == id){
-                contacto.remove(id - 1);
+                contacto.remove(c);
+                System.out.println("Numero eliminado correctamente");
                 return;
             }
         }
+            System.out.println("No se encontro el ID del numero que desea eliminar");
+    }
+    public void validarNumero(long numero){
+        
     }
 
 
