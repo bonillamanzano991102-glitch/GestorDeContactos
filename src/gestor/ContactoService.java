@@ -39,8 +39,12 @@ public class ContactoService {
     public void actualizarNumero(int id, long numeroNuevo){
         for (Contacto c : contacto){
             if (c.getId() == id){
-                c.setNumero(numeroNuevo);
-                System.out.println("Numero actualizado correctamente!!!");
+          if (!validarNumero(numeroNuevo)){
+              System.out.println("El numero no es valido, debe tener 10 digitos!");
+              return;
+          }
+          c.setNumero(numeroNuevo);
+                System.out.println("Numero actualizado con exito!!!!!");
                 return;
             }
         }
@@ -60,10 +64,12 @@ public class ContactoService {
         }
             System.out.println("No se encontro el ID del numero que desea eliminar");
     }
-    public boolean validarNumero(long numero){
-        if (numero != 10){
-            System.out.println();
-        }return ;
+    public static boolean validarNumero(long numero){
+        String validarNumero = String.valueOf(numero);
+        if (validarNumero.length() != 10) {
+            return false;
+
+        }return true;
     }
 
 
